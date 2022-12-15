@@ -1,0 +1,33 @@
+.hit {
+  background-image: url('/holes/blood.png');
+}
+
+.shot {
+  position: absolute;
+  z-index: 20;
+
+  display: block;
+
+  width: 36px;
+  height: 36px;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.miss_1 {
+  background-image: url('/holes/bullet-hole-1.png');
+}
+
+.miss_2 {
+  background-image: url('/holes/bullet-hole-2.png');
+}
+
+.miss_3 {
+  background-image: url('/holes/bullet-hole-3.png');
+}
+
+.miss_4 {
+  background-image: url('/holes/bullet-hole-4.png');
+}

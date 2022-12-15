@@ -1,0 +1,105 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+}
+
+.plank {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  max-width: 8.5rem;
+  height: 100%;
+  max-height: 10.5rem;
+  margin: 0.2rem;
+
+  background-image: url('/plank.jpg');
+  background-size: cover;
+  box-shadow: 0 0 10px black;
+}
+
+.paper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  max-width: 7rem;
+  height: 100%;
+  max-height: 9rem;
+  margin: 0.2rem;
+
+  background-image: url('./paper.png');
+  background-size: 100% 100%;
+}
+
+.shooter {
+  position: relative;
+
+  display: flex;
+
+  width: 80%;
+  height: 80%;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.target_cowboy {
+  background-image: url('/targets/cowboy.png');
+}
+
+.target_gunpig {
+  background-image: url('/targets/gunpig.png');
+}
+
+.target_indian {
+  background-image: url('/targets/indian.png');
+}
+
+.target_pig {
+  background-image: url('/targets/pig.png');
+}
+
+.target_stich {
+  background-image: url('/targets/stich.png');
+}
+
+.bloodZone {
+  position: absolute;
+}
+
+.title,
+.price {
+  font-family: Gildia-rough-bold, sans-serif;
+  text-align: center;
+}
+
+.title {
+  margin-top: 5px;
+}
+
+.price {
+  margin-bottom: 5px;
+}
+
+.hidden {
+  display: none;
+}
+
+.guns {
+  width: 80%;
+  height: 80%;
+
+  background-image: url('./guns.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+}

@@ -1,0 +1,6 @@
+.container {
+  cursor: url('./aim.png') 16 16, auto;
+  z-index: 10;
+  width: 60%;
+  height: 100%;
+}

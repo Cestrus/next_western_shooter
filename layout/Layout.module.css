@@ -1,0 +1,16 @@
+.container {
+  display: grid;
+  grid-template-areas:
+    'header'
+    'gameplate'
+    'footer';
+  grid-template-rows: 1fr 6fr 1fr;
+
+  width: 100vw;
+  height: 100vh;
+
+  background-image: url('/old-paper-texture.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+}

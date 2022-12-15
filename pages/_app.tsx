@@ -1,8 +1,19 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import type { AppProps } from 'next/app';
+import Head from 'next/head';
+import { Provider } from 'react-redux';
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
-}
+import '../styles/globals.css';
+import { store } from '../store/store';
 
-export default MyApp
+const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
+  return (
+    <Provider store={store}>
+      <Head>
+        <title>Western Shot</title>
+      </Head>
+      <Component {...pageProps} />
+    </Provider>
+  );
+};
+
+export default MyApp;

@@ -1,0 +1,10 @@
+.footer {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.corner {
+  position: absolute;
+  max-height: 100%;
+}

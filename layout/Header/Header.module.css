@@ -1,0 +1,9 @@
+.header {
+  position: relative;
+  display: flex;
+}
+
+.corner {
+  position: absolute;
+  max-height: 100%;
+}

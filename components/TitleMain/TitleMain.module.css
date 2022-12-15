@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.img {
+  width: 7rem;
+  margin: 0 20px;
+}
+
+.imgLeft {
+  transform: rotateY(180deg);
+}
+
+.text {
+  font-family: Gildia-rough-bold, sans-serif;
+}

@@ -1,0 +1,27 @@
+.list {
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+
+  height: calc(100% - 4rem);
+  margin: 10px;
+  padding-inline-start: 0;
+
+  font-family: Gildia-rough-bold, serif;
+  list-style-type: none;
+}
+
+.list::-webkit-scrollbar {
+  width: 5px;
+}
+
+.list::-webkit-scrollbar-track {
+  border-radius: 2px;
+  box-shadow: inset 0 0 5px grey;
+}
+
+/* Handle */
+.list::-webkit-scrollbar-thumb {
+  background: var(--color-prime-500);
+  border-radius: 2px;
+}

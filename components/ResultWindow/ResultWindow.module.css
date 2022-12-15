@@ -1,0 +1,60 @@
+.container {
+  position: absolute;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 500px;
+  height: 300px;
+
+  font-family: Gildia-rough-bold, sans-serif;
+
+  background-image: url('/wild-west.jpg');
+  background-size: 100% 100%;
+  border: 2px solid black;
+  box-shadow: 0 0 20px black;
+}
+
+.titleWrap {
+  display: flex;
+  height: 30%;
+}
+
+.title {
+  margin: auto;
+}
+
+.buttonWrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  width: 100%;
+  height: 30%;
+}
+
+.button {
+  width: 100px;
+  height: 35px;
+  margin: 30px 20px;
+
+  font-size: 18px;
+
+  box-shadow: 0 0 10px black;
+}
+
+.result {
+  width: 100%;
+}
+
+.text {
+  font-size: 32px;
+  text-align: center;
+}
+
+.corner {
+  position: absolute;
+  width: 100px;
+}

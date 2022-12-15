@@ -1,26 +1,83 @@
-html,
+@import url('./normalize.css');
+
+@font-face {
+  font-family: Gildia-bold;
+  src: url('/fonts/a-gildia-bold.woff2') format('woff2');
+}
+@font-face {
+  font-family: Gildia-exp-bold;
+  src: url('/fonts/a-gildiaexp-bold.woff2') format('woff2');
+}
+@font-face {
+  font-family: Gildia-rough-bold;
+  src: url('/fonts/a-gildiarough-bold.woff2') format('woff2');
+}
+
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  --color-black: #000;
+  --color-white: #fff;
+  --color-prime-100: #e9c6a9;
+  --color-prime-500: #7b3709;
+
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-@media (prefers-color-scheme: dark) {
+@media screen and (width < 768px) {
   html {
-    color-scheme: dark;
+    font-size: 8px;
   }
-  body {
-    color: white;
-    background: black;
+}
+
+@media screen and (width >= 768px) {
+  html {
+    font-size: 12px;
   }
+}
+
+@media screen and (width >= 992px) {
+  html {
+    font-size: 16px;
+  }
+}
+@media screen and (width >= 1400px) {
+  html {
+    font-size: 20px;
+  }
+}
+
+#root {
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+h2 {
+  font-size: 3.1rem;
+}
+
+h3 {
+  font-size: 2.4rem;
+}
+
+h4 {
+  font-size: 1.8rem;
+}
+
+h5 {
+  font-size: 1.35rem;
 }

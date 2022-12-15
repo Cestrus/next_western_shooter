@@ -1,0 +1,43 @@
+.playerWrap {
+  display: flex;
+  justify-content: space-between;
+
+  width: calc(100% - 20px);
+  margin-top: 2px;
+  padding: 0 10px;
+
+  font-family: Gildia-rough-bold, serif;
+}
+
+.li {
+  margin: 0 10px;
+}
+
+.text {
+  display: block;
+}
+
+.title {
+  margin: auto;
+}
+
+.woodPlank {
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.plank_1 {
+  background-image: url('./wood_planks/woodplank_1.png');
+}
+
+.plank_2 {
+  background-image: url('./wood_planks/woodplank_2.png');
+}
+
+.plank_3 {
+  background-image: url('./wood_planks/woodplank_3.png');
+}
+
+.plank_4 {
+  background-image: url('./wood_planks/woodplank_4.png');
+}
