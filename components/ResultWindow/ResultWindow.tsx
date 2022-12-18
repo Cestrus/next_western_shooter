@@ -17,11 +17,9 @@ import {
   setPlayerName,
 } from '../../store/playerSlice';
 import { RootState } from '../../store/store';
-// import { sendTopGunners } from '../../utils/db';
 
 export const ResultWindow: React.FC<IResultProps> = () => {
   const moneyValue = useSelector((state: RootState) => state.player.moneyValue);
-  // const topGunners = useSelector((state: RootState) => state.player.topGunners);
   const dispatch = useDispatch();
 
   const resetGameResult = (): void => {
@@ -33,7 +31,6 @@ export const ResultWindow: React.FC<IResultProps> = () => {
       dispatch(resetMoneyValue());
     }, 600);
     dispatch(addGunnerToTop());
-    // sendTopGunners(topGunners);
   };
 
   const changeShooterHandler: React.MouseEventHandler<HTMLButtonElement> = () => {

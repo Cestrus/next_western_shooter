@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IPlayerInfo } from '../types/globalTypes';
+import { sendDataToDb } from '../utils/http';
 
 export interface IPlayerState {
   gameIsOver: boolean;
@@ -50,6 +51,7 @@ export const playerSlice = createSlice({
       gunners.sort((a, b) => b.money - a.money);
       gunners.length = gunners.length > 10 ? 10 : gunners.length;
       state.topGunners = gunners;
+      sendDataToDb(gunners);
     },
     addMoneyValue: (state, action: PayloadAction<number>) => {
       state.moneyValue += action.payload;

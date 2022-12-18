@@ -1,4 +1,4 @@
-import { MongoClient, ObjectId } from 'mongodb';
+import { Collection, MongoClient, ObjectId, UpdateResult } from 'mongodb';
 import { IPlayerInfo } from '../types/globalTypes';
 
 const URL = 'mongodb+srv://user_1:user_1@learningcluster.3ozfb.mongodb.net/?retryWrites=true&w=majority';
@@ -11,10 +11,17 @@ interface IGunnersSchema {
 
 const client = new MongoClient(URL);
 
+const connectDb = (): Collection<IGunnersSchema> => {
+  const database = client.db('western_shot');
+  const tops = database.collection<IGunnersSchema>('tops');
+  console.log('*** connect to mongoDb ***');
+
+  return tops;
+};
+
 export const getTopGunners = async (): Promise<IPlayerInfo[] | undefined> => {
   try {
-    const database = client.db('western_shot');
-    const tops = database.collection<IGunnersSchema>('tops');
+    const tops = connectDb();
     const gunners = await tops.findOne<IGunnersSchema>({ title: 'topGunners' });
     return gunners?.data;
   } catch (err) {
@@ -26,13 +33,11 @@ export const getTopGunners = async (): Promise<IPlayerInfo[] | undefined> => {
   }
 };
 
-export const sendTopGunners = async (data: IPlayerInfo[]): Promise<void> => {
-  console.log('++ ', data);
-
+export const sendTopGunners = async (data: IPlayerInfo[]): Promise<UpdateResult | undefined> => {
   try {
-    const database = client.db('western_shot');
-    const tops = database.collection<IGunnersSchema>('tops');
-    await tops.updateOne({ title: 'topGunners' }, data);
+    const tops = connectDb();
+    const result = await tops.updateOne({ title: 'topGunners' }, { $set: { data } });
+    return result;
   } catch (err) {
     if (err instanceof Error) {
       console.log(err.message);

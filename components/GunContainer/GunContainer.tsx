@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import cn from 'classnames';
 import useSound from 'use-sound';
@@ -20,7 +20,7 @@ export const GunContainer: React.FC<IGunContainerProps> = () => {
   const [reloadSound] = useSound('./audio/sounds/reload_bullet.wav');
   const dispatch = useDispatch();
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const reloadGun = (): void => {
       if (bulletsInGun < BULLETS_IN_GUN) {
         setTimeout(() => {

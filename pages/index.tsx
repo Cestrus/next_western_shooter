@@ -37,7 +37,9 @@ const Home: NextPage<IHomePageProps> = ({ topGunners }) => {
   }, [isGameOver, isPaused]);
 
   useEffect(() => {
-    dispatch(setTopGunners(topGunners));
+    if (topGunners) {
+      dispatch(setTopGunners(topGunners));
+    }
   }, []);
 
   return (
@@ -50,11 +52,11 @@ const Home: NextPage<IHomePageProps> = ({ topGunners }) => {
 };
 
 export const getStaticProps: GetStaticProps<IHomePageProps> = async () => {
-  const gunners = await getTopGunners();
-  if (gunners) {
-    gunners.sort((a, b) => b.money - a.money);
+  const topGunners = await getTopGunners();
+
+  if (topGunners) {
+    topGunners.sort((a, b) => b.money - a.money);
   }
-  const topGunners = gunners || [];
   return {
     props: {
       topGunners,
@@ -63,7 +65,7 @@ export const getStaticProps: GetStaticProps<IHomePageProps> = async () => {
 };
 
 interface IHomePageProps extends Record<string, unknown> {
-  topGunners: IPlayerInfo[];
+  topGunners: IPlayerInfo[] | undefined;
 }
 
 export default withLayout(Home);
