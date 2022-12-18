@@ -47,8 +47,8 @@ export const playerSlice = createSlice({
       }
       const gunners = [...state.topGunners];
       gunners.push({ name: state.name, money: state.moneyValue });
-      gunners.sort((a, b) => a.money - b.money);
-      gunners.length = 10;
+      gunners.sort((a, b) => b.money - a.money);
+      gunners.length = gunners.length > 10 ? 10 : gunners.length;
       state.topGunners = gunners;
     },
     addMoneyValue: (state, action: PayloadAction<number>) => {
@@ -75,6 +75,7 @@ export const {
   addMoneyValue,
   resetMoneyValue,
   removeMoneyValue,
+  addGunnerToTop,
 } = playerSlice.actions;
 
 export default playerSlice.reducer;

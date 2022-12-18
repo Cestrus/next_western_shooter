@@ -8,12 +8,20 @@ import { Button } from '../Button/Button';
 import { IResultProps } from './ResultWindow.prop';
 import { setFullGun } from '../../store/shootingSlice';
 import { resetTargetPlate } from '../../store/targetsSlice';
-import { resetMoneyValue, setGameIsOver, setIsAuthorized, setPauseOn, setPlayerName } from '../../store/playerSlice';
+import {
+  addGunnerToTop,
+  resetMoneyValue,
+  setGameIsOver,
+  setIsAuthorized,
+  setPauseOn,
+  setPlayerName,
+} from '../../store/playerSlice';
 import { RootState } from '../../store/store';
+// import { sendTopGunners } from '../../utils/db';
 
 export const ResultWindow: React.FC<IResultProps> = () => {
   const moneyValue = useSelector((state: RootState) => state.player.moneyValue);
-  // const gameIsOver = useSelector((state: RootState) => state.player.gameIsOver);
+  // const topGunners = useSelector((state: RootState) => state.player.topGunners);
   const dispatch = useDispatch();
 
   const resetGameResult = (): void => {
@@ -24,6 +32,8 @@ export const ResultWindow: React.FC<IResultProps> = () => {
     setTimeout(() => {
       dispatch(resetMoneyValue());
     }, 600);
+    dispatch(addGunnerToTop());
+    // sendTopGunners(topGunners);
   };
 
   const changeShooterHandler: React.MouseEventHandler<HTMLButtonElement> = () => {
@@ -53,7 +63,7 @@ export const ResultWindow: React.FC<IResultProps> = () => {
       </div>
       <div className={styles.result}>
         {moneyValue > 0 && <p className={styles.text}>Congratulations! You award {moneyValue} $! </p>}
-        {moneyValue <= 0 && <p className={styles.text}>Your can`t shot any bandit! You are loser!</p>}
+        {moneyValue <= 0 && <p className={styles.text}>Your shot so many good gays! </p>}
       </div>
       <div className={styles.buttonWrap}>
         <Button onClick={changeShooterHandler} className={styles.button}>

@@ -1,16 +1,18 @@
 import { AnimatePresence } from 'framer-motion';
-import type { NextPage } from 'next';
+import type { GetStaticProps, NextPage } from 'next';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { GamePlate, Modal } from '../components/index';
 import { withLayout } from '../layout/Layout';
+import { setTopGunners } from '../store/playerSlice';
 import { RootState } from '../store/store';
 import { setTargetPlate } from '../store/targetsSlice';
-import { ModalType } from '../types/globalTypes';
+import { IPlayerInfo, ModalType } from '../types/globalTypes';
 import { GAME_SPEED } from '../utils/constants';
+import { getTopGunners } from '../utils/db';
 
-const Home: NextPage = () => {
+const Home: NextPage<IHomePageProps> = ({ topGunners }) => {
   const isAuthorized = useSelector((state: RootState) => state.player.isAuthorized);
   const isGameOver = useSelector((state: RootState) => state.player.gameIsOver);
   const isPaused = useSelector((state: RootState) => state.player.isPaused);
@@ -33,6 +35,11 @@ const Home: NextPage = () => {
       clearInterval(timerId);
     }
   }, [isGameOver, isPaused]);
+
+  useEffect(() => {
+    dispatch(setTopGunners(topGunners));
+  }, []);
+
   return (
     <>
       <AnimatePresence>{!isAuthorized && <Modal modalType={ModalType.AUTHORIZATION} />}</AnimatePresence>
@@ -41,5 +48,22 @@ const Home: NextPage = () => {
     </>
   );
 };
+
+export const getStaticProps: GetStaticProps<IHomePageProps> = async () => {
+  const gunners = await getTopGunners();
+  if (gunners) {
+    gunners.sort((a, b) => b.money - a.money);
+  }
+  const topGunners = gunners || [];
+  return {
+    props: {
+      topGunners,
+    },
+  };
+};
+
+interface IHomePageProps extends Record<string, unknown> {
+  topGunners: IPlayerInfo[];
+}
 
 export default withLayout(Home);

@@ -4,11 +4,11 @@ import PlayerInfo from '../PlayerInfo/PlayerInfo';
 import styles from './RecordsList.module.css';
 import { IRecordsListProps } from './RecordsList.prop';
 
-const RecordsList: React.FC<IRecordsListProps> = ({ playersList }) => {
+const RecordsList: React.FC<IRecordsListProps> = ({ topGunners }) => {
   return (
     <ul className={styles.list}>
-      {playersList.map((player, idx) => (
-        <PlayerInfo player={player} key={player.name + player.money + idx} rating={idx + 1} />
+      {topGunners.map((gunner, idx) => (
+        <PlayerInfo player={gunner} key={gunner.name + gunner.money + idx} rating={idx + 1} />
       ))}
     </ul>
   );

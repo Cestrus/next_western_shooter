@@ -1,4 +1,3 @@
-import { NextPage } from 'next/types';
 import React from 'react';
 import Footer from './Footer/Footer';
 import Header from './Header/Header';
@@ -16,7 +15,7 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
   );
 };
 
-export const withLayout = <T extends Record<string, unknown> & NextPage>(Component: React.FC<T>) => {
+export const withLayout = <T extends Record<string, unknown>>(Component: React.FC<T>) => {
   return function withLayoutComponent(props: T): JSX.Element {
     return (
       <Layout>

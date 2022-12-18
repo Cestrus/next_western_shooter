@@ -8,7 +8,6 @@ import CornerMainSvg from './vintage_corner.svg';
 export const CornerMain: React.FC<ICornerMainProps> = ({ position, className }) => {
   return (
     <CornerMainSvg
-      // src={CornerMainSvg}
       className={cn(className, {
         [styles['top-right']]: position === 'top-right',
         [styles['top-left']]: position === 'top-left',
