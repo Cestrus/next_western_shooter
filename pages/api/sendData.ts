@@ -8,7 +8,7 @@ const handler = async (req: NextApiRequest): Promise<UpdateResult | undefined> =
     const data = req.body;
 
     result = await sendTopGunners(data);
-    console.log(`*** send result: ${result} ***`);
+    console.log(`*** send result: ${result?.acknowledged} ***`);
   }
   return result;
 };

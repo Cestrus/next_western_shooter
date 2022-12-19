@@ -1,6 +1,5 @@
 import React, { MouseEventHandler } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-// import { ReactSVG } from 'react-svg';
 import cn from 'classnames';
 
 import PlaySVG from './play.svg';
