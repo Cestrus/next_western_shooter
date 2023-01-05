@@ -2,8 +2,6 @@ import { Collection, MongoClient, ObjectId, UpdateResult } from 'mongodb';
 import { IPlayerInfo } from '../types/globalTypes';
 import process from 'node:process';
 
-// const URL = 'mongodb+srv://user_1:user_1@learningcluster.3ozfb.mongodb.net/?retryWrites=true&w=majority';
-
 interface IGunnersSchema {
   _id: ObjectId | string;
   title: string;
